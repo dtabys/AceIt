@@ -6,7 +6,6 @@
   "description": "Lateral blog post demo extension",
 
   "content_scripts": [{
-    "css": ["styles.css"],
     "js": ["content.js"],
     "matches": ["https://www.chegg.com/homework-help/*"]
   }]
