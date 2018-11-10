@@ -1,7 +1,34 @@
-var obfuscated = document.getElementsByClassName("cs-obfuscation");
+if(window.location.href.indexOf("chegg.com") > -1) {
+	var obfuscated = document.getElementsByClassName("cs-obfuscation");
 
-for (var i = 0; i < obfuscated.length; i++) {
-	obfuscated[i].innerHTML = "<a href=\"https://textsheet.com/\">Text sheet</a>";
-	obfuscated[i].style.fontSize = "xx-large";
-	obfuscated[i].className = "unobfuscation"
+	if (!!obfuscated){
+		for (var i = 0; i < obfuscated.length; i++) {
+		obfuscated[i].innerHTML = "<a href=\"https://textsheet.com/\">Text sheet</a>";
+		obfuscated[i].style.fontSize = "xx-large";
+		obfuscated[i].className = "unobfuscation"
+	}
+	}
+}
+if (window.location.href.indexOf("textsheet.com") > -1) {
+	clickButton = function(){
+	document.getElementById("singlebutton").click()
+	};
+
+	var url = window.location.href;
+	var myEle = document.getElementById("1");
+
+	if(myEle){
+
+	//var x = document.getElementById("singlebutton");
+	//document.getElementById("singlebutton").submit();
+	//document.getElementById("1").onChange =
+	alert("Before URL");
+	document.getElementById('1').value='https://www.chegg.com/homework-help/questions-and-answers/find-ones-digit-number-47327-q30827644?trackid=3056eecf&strackid=37ba3706&ii=1';
+	alert("After URL");
+
+	//x.submit();
+	//  window.setTimeout(clickButton(), 300);
+	clickButton();
+	alert("After Button");
+	}
 }
