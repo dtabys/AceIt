@@ -1,13 +1,16 @@
 {
-  "manifest_version": 2,
-
-  "name": "Modify CSS and HTML",
-  "version": "1.0",
-  "description": "Lateral blog post demo extension",
-
-  "content_scripts": [{
-    "js": ["content.js"],
-    "matches": ["https://www.chegg.com/homework-help/*"]
-  }]
-
+	"manifest_version": 2,
+	"name": "Modify CSS and HTML",
+	"version": "1.0",
+	"description": "Lateral blog post demo extension",
+	"icons": {
+		"16": "images/a_plus16.png",
+		"32": "images/a_plus32.png",
+		"48": "images/a_plus48.png",
+		"128": "images/a_plus128.png"
+	},
+	"content_scripts": [{
+		"js": ["unobfuscation.js"],
+		"matches": ["https://www.chegg.com/homework-help/*"]
+	}]
 }
