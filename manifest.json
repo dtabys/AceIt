@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"manifest_version": 2,
 	"name": "Modify CSS and HTML",
 	"version": "1.0",
@@ -14,3 +15,17 @@
 		"matches": ["https://www.chegg.com/homework-help/*"]
 	}]
 }
+=======
+  "manifest_version": 2,
+
+  "name": "Modify CSS and HTML",
+  "version": "1.0",
+  "description": "Lateral blog post demo extension",
+
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["https://www.textsheet.com/*"]
+  }]
+
+}
+>>>>>>> b341499c2b12d79ac2c9ee97dad8dae6ad05858f
