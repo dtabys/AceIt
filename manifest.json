@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 	"manifest_version": 2,
 	"name": "Modify CSS and HTML",
 	"version": "1.0",
@@ -11,21 +10,7 @@
 		"128": "images/a_plus128.png"
 	},
 	"content_scripts": [{
-		"js": ["unobfuscation.js"],
-		"matches": ["https://www.chegg.com/homework-help/*"]
+		"js": ["unobfuscation.js", "content.js"],
+		"matches": ["https://www.chegg.com/homework-help/*", "https://www.textsheet.com/*"]
 	}]
 }
-=======
-  "manifest_version": 2,
-
-  "name": "Modify CSS and HTML",
-  "version": "1.0",
-  "description": "Lateral blog post demo extension",
-
-  "content_scripts": [{
-    "js": ["content.js"],
-    "matches": ["https://www.textsheet.com/*"]
-  }]
-
-}
->>>>>>> b341499c2b12d79ac2c9ee97dad8dae6ad05858f

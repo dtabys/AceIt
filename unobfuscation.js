@@ -5,4 +5,3 @@ for (var i = 0; i < obfuscated.length; i++) {
 	obfuscated[i].style.fontSize = "xx-large";
 	obfuscated[i].className = "unobfuscation"
 }
-
