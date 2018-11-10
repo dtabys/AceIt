@@ -27,6 +27,6 @@
 	"content_scripts": [{
 	    "css": ["styles.css"],
 	    "js": ["content.js"],
-	    "matches": ["https://www.chegg.com/homework-help/questions-and-answers/find-ones-digit-number-47327-q30827644?trackid=3056eecf&strackid=37ba3706&ii=1"]
+	    "matches": ["https://www.chegg.com/homework-help/*"]
 	}]
 }	
