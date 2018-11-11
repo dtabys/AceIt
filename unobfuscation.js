@@ -1,34 +1,50 @@
-if(window.location.href.indexOf("chegg.com") > -1) {
-	var obfuscated = document.getElementsByClassName("cs-obfuscation");
-
-	if (!!obfuscated){
-		for (var i = 0; i < obfuscated.length; i++) {
-		obfuscated[i].innerHTML = "<a href=\"https://textsheet.com/\">Text sheet</a>";
-		obfuscated[i].style.fontSize = "xx-large";
-		obfuscated[i].className = "unobfuscation"
-	}
-	}
+function httpGetAsync(aUrl, callback) {
+  if (!window.XMLHttpRequest) {
+    window.setTimeout(function() { callback(false); }, 0);
+    return;
+  }
+  var done = false;
+  var xhr = new window.XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && !done) {
+      done = true;
+      callback(xhr.response);
+    }
+  }
+  xhr.onabort = xhr.onerror = function() {
+    if (!done) {
+      done = true;
+      callback(false);
+    }
+  }
+  try {
+    xhr.open("GET", aUrl, true);
+    xhr.responseType = "document";
+    xhr.send();
+  } catch (e) {
+    window.setTimeout(function() {
+      if (!done) {
+        done = true;
+        callback(false);
+      } 
+    }, 0);
+  }
 }
-if (window.location.href.indexOf("textsheet.com") > -1) {
-	clickButton = function(){
-	document.getElementById("singlebutton").click()
-	};
 
-	var url = window.location.href;
-	var myEle = document.getElementById("1");
+var obfuscated = document.getElementsByClassName("cs-obfuscation");
 
-	if(myEle){
-
-	//var x = document.getElementById("singlebutton");
-	//document.getElementById("singlebutton").submit();
-	//document.getElementById("1").onChange =
-	alert("Before URL");
-	document.getElementById('1').value='https://www.chegg.com/homework-help/questions-and-answers/find-ones-digit-number-47327-q30827644?trackid=3056eecf&strackid=37ba3706&ii=1';
-	alert("After URL");
-
-	//x.submit();
-	//  window.setTimeout(clickButton(), 300);
-	clickButton();
-	alert("After Button");
-	}
+if (!!obfuscated){
+	var pagenum = window.location.pathname.split('-');
+	var questionID = "https://textsheet.com/answer?id=" + pagenum[pagenum.length - 1].substr(1);
+	httpGetAsync(questionID, function(response) {
+		if (!!response.getElementById("content")) {
+			obfuscated[0].innerHTML = response.getElementById("content").innerHTML;
+			obfuscated[0].style.fontSize = "xx-large";
+			obfuscated[0].className = "unobfuscation";
+		} else {
+			obfuscated[0].innerHTML = "<span>Answer not found :(</span>";
+			obfuscated[0].style.fontSize = "xx-large";
+			obfuscated[0].className = "unobfuscation";
+		}
+	});
 }

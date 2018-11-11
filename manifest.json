@@ -12,5 +12,8 @@
 	"content_scripts": [{
 		"js": ["unobfuscation.js"],
 		"matches": ["https://www.chegg.com/homework-help/*", "https://www.textsheet.com/*"]
-	}]
+	}],
+	"permissions": [
+	  "https://textsheet.com/"
+	]
 }
