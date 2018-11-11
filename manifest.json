@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "Modify CSS and HTML",
+	"name": "AceIT",
 	"version": "1.0",
-	"description": "Lateral blog post demo extension",
+	"description": "Unblurs Chegg homework solutions.",
 	"icons": {
 		"16": "images/a_plus16.png",
 		"32": "images/a_plus32.png",
@@ -11,7 +11,7 @@
 	},
 	"content_scripts": [{
 		"js": ["unobfuscation.js"],
-		"matches": ["https://www.chegg.com/homework-help/*", "https://www.textsheet.com/*"]
+		"matches": ["https://www.chegg.com/homework-help/*"]
 	}],
 	"permissions": [
 	  "https://textsheet.com/"
