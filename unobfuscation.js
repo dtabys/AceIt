@@ -31,28 +31,42 @@ function httpGet(url, callback) {
   }
 }
 
-var obfuscated = document.getElementsByClassName("cs-obfuscation");
-var sauce = obfuscated[0];
+var obfuscated = document.getElementsByClassName("cs-obfuscation")[0];
+var expertAns = document.getElementsByClassName("txt-body answer-excerpt-seo")[0];
+if (!!expertAns) {
+  document.getElementsByClassName("dialog-question")[0].removeChild(expertAns);
+}
 
 if (!!obfuscated){
 	var pagenum = window.location.pathname.split('-');
 	var questionID = "https://textsheet.com/answer?id=" + pagenum[pagenum.length - 1].substr(1);
 	httpGet(questionID, function(response) {
 		if (!!response.getElementById("content")) {
-			sauce.innerHTML = response.getElementById("content").innerHTML;
-			sauce.style.fontSize = "xx-large";
-			sauce.className = "unobfuscation";
+			obfuscated.innerHTML = response.getElementById("content").innerHTML;
+			obfuscated.className = "unobfuscation";
 		} else {
 			httpGet("https://textsheet.com/", function(textsheetResponse) {
+        var s = document.createElement("script");
+        s.src = "https://www.google.com/recaptcha/api.js";
+        s.async = true;
+        s.defer = true;
+        document.head.appendChild(s);
+
 				var form = textsheetResponse.getElementsByClassName("input-group")[0];
-				form.removeChild(form.getElementsByClassName("form-control")[0]);
-				form.removeChild(form.getElementsByClassName("input-group-btn")[0]);
+        form.getElementsByClassName("form-control")[0].hidden = true;
+        form.getElementsByClassName("form-control")[0].value = window.location.href;
+        form.getElementsByClassName("form-control")[0].removeAttribute("required");
 				form.removeChild(form.getElementsByClassName("spacer30")[0]);
+
+        //form.getElementById("singlebutton").removeAttribute()
+
 				form = textsheetResponse.getElementById("form-buscar");
-				sauce.removeChild(sauce.getElementsByClassName("C-Eggshell-dialog C-Eggshell-inline-dialog qna sunkist-obfuscation")[0]);
-				sauce.appendChild(form);
-				sauce.style.fontSize = "xx-large";
-				sauce.className = "unobfuscation";
+        form.action = "https://textsheet.com/retort";
+				obfuscated.removeChild(obfuscated.getElementsByClassName("C-Eggshell-dialog C-Eggshell-inline-dialog qna sunkist-obfuscation")[0]);
+				obfuscated.appendChild(form);
+        //eval(function onSubmit(token) {return document.getElementById("form-buscar").submit();});
+				obfuscated.className = "unobfuscation";
+        //document.getElementById("form-buscar").submit();
 			});
 		}
 	});
