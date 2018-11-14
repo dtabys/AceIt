@@ -1,5 +1,13 @@
-# Create a Chrome extension to modify a website's HTML or CSS
+# Ace It
 
-See post: https://blog.lateral.io/2016/04/create-chrome-extension-modify-websites-html-css/
+## Description
+Accepts problems as text input and finds Chegg solutions for the problem without needing a Chegg account.
 
-Icon: https://www.flaticon.com/free-icon/a-plus_43965#term=A%20plus&page=1&position=23
+## Instalation
+Download the AceIt.crx file and drag and drop it into "chrome://extentions" tab.
+
+## Usage
+The extension detects when you are trying to find a solution to a problem, and automatically replaces the answer if found.
+
+### Credits
+[Icon](https://www.flaticon.com/free-icon/a-plus_43965)
