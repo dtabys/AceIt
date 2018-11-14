@@ -43,7 +43,7 @@ if (!!obfuscated){
 			// unblur
 			obfuscated.innerHTML = response.getElementById("content").innerHTML;
 			obfuscated.style.fontSize = "large";
-			obfuscated[0].className = "unobfuscation";
+			obfuscated.className = "unobfuscation";
 		} else {
 			// else replace with "no answer found"
 			obfuscated.innerHTML = "<span>Answer not found :(</span>";
