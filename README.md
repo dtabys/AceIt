@@ -9,5 +9,5 @@ Download the [AceIt.crx](https://github.com/ShubhamMehta99/Sunhacks2018_Ace-It/b
 ## Usage
 The extension detects when you are trying to find a solution to a problem, and automatically replaces the answer if found.
 
-### Credits
-[Icon](https://www.flaticon.com/free-icon/a-plus_43965)
+## Credits
+[Icon used](https://www.flaticon.com/free-icon/a-plus_43965)
